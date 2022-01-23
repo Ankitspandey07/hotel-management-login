@@ -24,8 +24,4 @@ app.use('/auth', authRoute);
 
 app.get('/', isLoggedIn, (req, res) => res.render('index'));
 
-app.get('/failure', isLoggedOut, (req, res) => {
-	res.send('Not logged in. Please try again.');
-});
-
 app.listen(8000, () => console.log('Server running'));

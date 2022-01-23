@@ -1,6 +1,8 @@
-const isLoggedIn = (req, res, next) => (req.isAuthenticated() ? next() : res.redirect('/auth/login'));
+const isLoggedIn = (req, res, next) =>
+	req.isAuthenticated() ? next() : res.redirect('/auth/login');
 
-const isLoggedOut = (req, res, next) => (!req.isAuthenticated() ? next() : res.send('Logout first'));
+const isLoggedOut = (req, res, next) =>
+	!req.isAuthenticated() ? next() : res.send('Logout first');
 
 const isCustomer = (req, res, next) => {
 	const { isOwner, isManager, isReceptionist } = req.user;

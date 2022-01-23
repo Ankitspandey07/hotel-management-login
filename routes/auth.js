@@ -23,7 +23,10 @@ router.post('/register', isLoggedOut, async (req, res) => {
 			req.flash('register-error', 'Username already exists');
 			return res.redirect('register');
 		}
-		await User.create({ username, password: await bcrypt.hash(password, await bcrypt.genSalt(10)) });
+		await User.create({
+			username,
+			password: await bcrypt.hash(password, await bcrypt.genSalt(10)),
+		});
 		res.redirect('login');
 	} catch (err) {
 		console.log(err);
@@ -34,7 +37,11 @@ router.post('/register', isLoggedOut, async (req, res) => {
 router.post(
 	'/login',
 	isLoggedOut,
-	passport.authenticate('local', { successRedirect: '/', failureFlash: true, failureRedirect: 'login' })
+	passport.authenticate('local', {
+		successRedirect: '/',
+		failureFlash: true,
+		failureRedirect: 'login',
+	})
 );
 
 router.get('/logout', (req, res) => {
