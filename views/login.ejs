@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			body {
+				background-color: bisque;
+			}
+
+			.wrapper {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				border: 1px solid brown;
+				border-radius: 10px;
+				outline: none;
+				padding: 2em;
+			}
+
+			form > div {
+				padding: 1em;
+			}
+
+			form > div > label,
+			form > div > input {
+				color: brown;
+				font-size: 1.5rem;
+			}
+
+			input {
+				background-color: transparent;
+				border: 1px solid brown;
+				border-radius: 5px;
+				outline: none;
+			}
+
+			button {
+				margin: 1em;
+				background-color: transparent;
+				padding: 0.5em 1em;
+				font-size: large;
+				color: brown;
+				border: 1px solid brown;
+				cursor: pointer;
+			}
+
+			button:hover,
+			button:focus {
+				background-color: #eecca9;
+			}
+
+			p,
+			p > a {
+				color: brown;
+			}
+		</style>
+		<title>Hotel - Login</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<form action="/auth/login" method="post">
+				<div>
+					<label for="name">Username: </label>
+					<input type="text" name="username" id="name" />
+				</div>
+				<div>
+					<label for="password">Password: </label>
+					<input type="password" name="password" id="password" />
+				</div>
+				<button type="submit">Login</button>
+				<% if (msg) { %>
+				<p><%= msg %></p>
+				<% } %>
+				<p>No accout? <a href="/auth/register">Register</a></p>
+			</form>
+		</div>
+	</body>
+</html>
