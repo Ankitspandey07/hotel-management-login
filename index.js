@@ -9,11 +9,11 @@ const morgan = require('morgan');
 
 app.use(morgan('common'));
 app.use(
-	session({
-		secret: 'secret',
-		resave: false,
-		saveUninitialized: false,
-	})
+  session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false,
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
